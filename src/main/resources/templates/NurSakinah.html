@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Pembelian</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Hasil Pembelian</div>
+        <hr>
+    <p>Nama Buah                        :   <b th:text="${buah}"></b>
+    <p>Harga Perkilo                    :   Rp.<b th:text="${harga}"></b>
+    <p>Jumlah Beli                      :   <b th:text="${jumlahKilo}"></b>
+    <p>Harga Awal                       :   Rp.<b th:text="${jumlahAwal}"></b>
+    <p>Besaran Diskon (%)               :   <b th:text="${discount}"></b>
+    <p>Diskon dalam Rupiah              :   Rp.<b th:text="${getDisc}"></b>
+    <p>Total Harga yang harus dibayar   :   Rp.<b th:text="${totalBayar}"></b>
+</body>
+</html>
