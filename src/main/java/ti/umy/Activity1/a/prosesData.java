@@ -10,15 +10,15 @@ package ti.umy.Activity1.a;
  */
 public class prosesData {
 
-    public Double getnPrice (String price)
+    public Double getnPrice (String inputHarga)
     {
-        Double nPrice = Double.valueOf(price);
+        Double nPrice = Double.valueOf(inputHarga);
         return nPrice;
     }
     
-    public Double getnKilo (String kilo)
+    public Double getnKilo (String inputJumlah)
     {
-        Double nKilo = Double.valueOf(kilo);
+        Double nKilo = Double.valueOf(inputJumlah);
         return nKilo;
     }
     
