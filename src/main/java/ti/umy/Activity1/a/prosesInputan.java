@@ -18,43 +18,26 @@ public class prosesInputan {
     @RequestMapping ("/proses")
     public String getProses(HttpServletRequest data, Model proses)
     {
+        prosesData pro = new prosesData();
+        
         String inputBuah = data.getParameter("var_inputbuah");
         String inputHarga = data.getParameter("var_inputharga");
         String inputJumlah = data.getParameter("var_inputjumlah");
         
-        Double iHarga = Double.valueOf(inputHarga);
-        Double iJumlah = Double.valueOf(inputJumlah);
-        Double jumlahBayarAwal = iHarga * iJumlah;
-        Double getTotal = null;
-        Integer diskon = 0;
-        Double getDiskon = 0.0;
-        
-        
-        if (jumlahBayarAwal < 16000)
-        {
-            getTotal = jumlahBayarAwal - (jumlahBayarAwal * diskon/100);
-            getDiskon = jumlahBayarAwal * diskon / 100;
-        }
-        else if(jumlahBayarAwal < 25000)
-        {
-            diskon = 10;
-            getTotal = jumlahBayarAwal - (jumlahBayarAwal * diskon/100);
-            getDiskon = jumlahBayarAwal * diskon / 100;
-        }
-        else
-        {
-            diskon = 15;
-            getTotal = jumlahBayarAwal - (jumlahBayarAwal * diskon/100);
-            getDiskon = jumlahBayarAwal * diskon / 100;
-        }
+        Double iHarga = pro.getnPrice(inputHarga);
+        Double iJumlah = pro.getnKilo(inputJumlah);
+        Double jumlahBayarAwal = pro.getTotal(iHarga, iJumlah);
+        Double totalBayar = pro.getPaid(jumlahBayarAwal);
+        String Discount = pro.getDiscount(jumlahBayarAwal, totalBayar);
+        Double nDiskon = pro.getnDiscount(jumlahBayarAwal);
         
         proses.addAttribute("buah", inputBuah);
         proses.addAttribute("harga", inputHarga);
         proses.addAttribute("jumlahKilo", inputJumlah);
         proses.addAttribute("jumlahAwal", jumlahBayarAwal);
-        proses.addAttribute("getDisc", getDiskon);
-        proses.addAttribute("discount", diskon);
-        proses.addAttribute("totalBayar", getTotal);
+        proses.addAttribute("getDisc", Discount);
+        proses.addAttribute("discount", nDiskon);
+        proses.addAttribute("totalBayar", totalBayar);
         
         return "NurSakinah";
     }
