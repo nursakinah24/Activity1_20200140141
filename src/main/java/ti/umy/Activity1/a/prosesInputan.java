@@ -23,13 +23,16 @@ public class prosesInputan {
         String inputBuah = data.getParameter("var_inputbuah");
         String inputHarga = data.getParameter("var_inputharga");
         String inputJumlah = data.getParameter("var_inputjumlah");
+        String inputBayar = data.getParameter("var_inputbayar");
         
         Double iHarga = pro.getnPrice(inputHarga);
         Double iJumlah = pro.getnKilo(inputJumlah);
+        Double iBayar = pro.getPay(inputBayar);
         Double jumlahBayarAwal = pro.getTotal(iHarga, iJumlah);
         Double totalBayar = pro.getPaid(jumlahBayarAwal);
         String Discount = pro.getDiscount(jumlahBayarAwal, totalBayar);
         Double nDiskon = pro.getnDiscount(jumlahBayarAwal);
+        String nKembali = pro.getChange(iBayar, totalBayar);
         
         proses.addAttribute("buah", inputBuah);
         proses.addAttribute("harga", inputHarga);
@@ -38,6 +41,8 @@ public class prosesInputan {
         proses.addAttribute("getDisc", Discount);
         proses.addAttribute("discount", nDiskon);
         proses.addAttribute("totalBayar", totalBayar);
+        proses.addAttribute("bayar", inputBayar);
+        proses.addAttribute("kembali", nKembali);
         
         return "NurSakinah";
     }

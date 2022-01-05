@@ -22,6 +22,12 @@ public class prosesData {
         return nKilo;
     }
     
+    public Double getPay (String inputBayar)
+    {
+        Double nPay = Double.valueOf(inputBayar);
+        return nPay;
+    }
+
     public Double getTotal (Double nHarga, Double nKilo)
     {
         Double jumlahBayarAwal = nHarga * nKilo;
@@ -90,5 +96,25 @@ public class prosesData {
         }
         return totalPaid;
     }
-    
+        
+    public String getChange (Double nPay, Double totalPaid)
+    {
+        String Kembalian = "";
+        Double nChange = 0.0;
+        if (nPay == totalPaid)
+        {
+            return Kembalian = "Uang anda pas. Terima Kasih.";
+        }
+        else if (nPay > totalPaid)
+        {
+            nChange = nPay - totalPaid;
+            return Kembalian = "Uang Kembalian anda Rp." + nChange;
+        }
+        else if (nPay < totalPaid)
+        {
+            nChange = totalPaid - nPay;
+            return Kembalian = "Uang anda kurang Rp." +nChange;
+        }
+        return Kembalian;
+    }
 }

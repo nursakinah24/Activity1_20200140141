@@ -14,10 +14,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <hr>
     <p>Nama Buah                        :   <td th:text="${buah}"></td></p>
     <p>Harga Perkilo                    :   Rp.<td th:text="${harga}"></td></p>
-    <p>Jumlah Beli (kilo)               :   <td th:text="${jumlahKilo}"></td></p>
+    <p>Jumlah Beli                      :   <td th:text="${jumlahKilo}"><th> kg </th></td></p>
     <p>Harga Awal                       :   Rp.<td th:text="${jumlahAwal}"></td></p>
     <p>Diskon yang Didapatkan           :   <td th:text="${getDisc}"></td></p>
     <p>Diskon dalam Rupiah              :   Rp.<td th:text="${discount}"></td></p>
     <p>Total Harga yang Harus Dibayar   :   Rp.<td th:text="${totalBayar}"></td></p>
+    <p>Tunai                            :   Rp.<td th:text="${bayar}"></td></p>
+    <p>Kembali                          :   <td th:text="${kembali}"></td></p>
 </body>
 </html>
